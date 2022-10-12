@@ -1,0 +1,39 @@
+.previsao{
+    height: 30%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.temperatura{
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+    align-items: center;
+    justify-content: center;
+}
+
+.temperatura p{
+    font-weight: bolder;
+    color: white;
+}
+.graus{
+    font-size: 70px;
+}
+.celsius{
+    font-size: 35px;
+}
+
+.detalhes{
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.detalhes p{
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+}
