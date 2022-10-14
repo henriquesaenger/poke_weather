@@ -1,6 +1,7 @@
 import React, { useEffect, useState} from 'react';
 import styles from './App.module.css';
 import Previsao from './componentes/Previsao';
+import Pokemon from './componentes/Pokemon';
 
 function App() {
   const [previsao, setPrevisao]= useState();
@@ -38,6 +39,7 @@ function App() {
   return (
       <div className={styles.fundo} style={{ background: back_color()}}>
         <Previsao dados={previsao} hora={ultimaAtualizacao}/>
+        <Pokemon />
       </div>
   );
 }
