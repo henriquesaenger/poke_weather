@@ -5,7 +5,6 @@ import styles from './Previsao.module.css';
 const Previsao= (props) => {
     const hora= new Date().getHours();
     useEffect(() => {
-        console.log(props.dados);
     });
 
     return(
