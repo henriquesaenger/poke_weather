@@ -7,39 +7,56 @@ const Pokemon = (props) => {
     const [pokelist, setPokelist] = useState();
     const [climate, setClimate] = useState();
     var lista_preliminar= [];
+    var name_list= [];
 
-    const pegaLista= async () => {
-        lista_preliminar= [];
-        const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151");  
-        const data = await response.json();
-        data.results.forEach(async (pokemon) => {
-            const pokemon_data = await fetch(pokemon.url);
-            const pokemon_response = await pokemon_data.json();
-            var pokemon = {name: pokemon_response.name, types: pokemon_response.types, images: pokemon_response.sprites, prioridade: 0};
-            pokemon.prioridade= pesagem(pokemon, props.climate);
-            lista_preliminar.push(pokemon);
-            if(lista_preliminar !== []){  
-                setPokelist(await lista_preliminar.sort((a,b) => {
-                    if(a.prioridade > b.prioridade){
-                        return -1;
-                    }
-                    if(a.prioridade < b.prioridade){
-                        return 1;
-                    }
+    const pegaLista=  () => {
+        const response =  fetch("https://pokeapi.co/api/v2/pokemon?limit=151")
+        .then((response) => (response.json())
+        .then((data) => {
+            data.results.forEach((pokemon) => {
+                const pokemon_data =fetch(pokemon.url)
+                .then((pokemon_response) => (pokemon_response.json())
+                .then((pokemon_data) => {         
+                    var pokemon = {name: pokemon_data.name, types: pokemon_data.types, images: pokemon_data.sprites, prioridade: 0, id: pokemon_data.id};
+                    pokemon.prioridade= pesagem(pokemon_data, props.climate);
+                    const response = fetch("https://pokeapi.co/api/v2/pokemon-species/"+pokemon.id+"/")
+                    .then((response) => (response.json())
+                    .then((data) => {
+                        if(data.evolves_from_species){
+                            if(name_list.includes(data.evolves_from_species.name)){
+                                pokemon.prioridade-=0.7;
+                            }
+                        }
+                        console.log(pokemon.prioridade);
+                        if(lista_preliminar !== []){  
+                            setPokelist(lista_preliminar.sort((a,b) => {
+                                if(a.prioridade > b.prioridade){
+                                    return -1;
+                                }
+                                if(a.prioridade < b.prioridade){
+                                    return 1;
+                                }
+            
+                                return 0;
+                            }).slice(0,6));
+                        }
+                    }));
+                    console.log(pokemon.prioridade);
+                    name_list.push(pokemon.name);
+                    lista_preliminar.push(pokemon);
+                    // console.log(lista_preliminar);
+                }));
+            });
+        }), []);  
         
-                    return 0;
-                }).slice(0,6));
-            }
-        });
         
         console.log(lista_preliminar);
     }
 
     useEffect(() => {
         if(props.climate){
-            const identifier = setTimeout(async () => {
-                await pegaLista();
-                console.log(lista_preliminar);
+            const identifier = setTimeout(() => {
+                pegaLista();
             }, 500);
     
             return () => {
