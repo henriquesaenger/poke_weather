@@ -3,6 +3,8 @@
 This project was developed with the intention of studying web front-end and making a funny alternative of seeing weather forecast. It shows the pokémon that may appear near you according to the climate conditions you face in your region.
 The application was developed with ReactJS, and utilizing the "Open-Meteo API" for the data on weather forecast(https://open-meteo.com/), and the PokéAPI for the data on pokémon(https://pokeapi.co).
 
+The Styling was made using CSS Modules.
+
 ![Alt text](src/screen.png?raw=true)
 
 ## How the application works
