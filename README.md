@@ -102,17 +102,17 @@ The application was developed with ReactJS, and utilizing the "Open-Meteo API" f
 ## Data
 
 From Open-Meteo, the climate conditions fetched was:
-  -Hourly:
-    -Relative Humidity.
-    -Temperature.
-    -Total cloud cover as an area fraction.
-    -Apparent Temperature.
-    -Total precipitation (rain, showers, snow) sum of the preceding hour.
-    -Rain from large scale weather systems of the preceding hour in millimeter.
-    -Wind speed at 10 meters above ground.
-  -Daily:
-    -Maximum and minimum daily air temperature at 2 meters above ground.
-    -Maximum and minimum daily apparent temperature.
+  - Hourly:
+    - Relative Humidity.
+    - Temperature.
+    - Total cloud cover as an area fraction.
+    - Apparent Temperature.
+    - Total precipitation (rain, showers, snow) sum of the preceding hour.
+    - Rain from large scale weather systems of the preceding hour in millimeter.
+    - Wind speed at 10 meters above ground.
+  - Daily:
+    - Maximum and minimum daily air temperature at 2 meters above ground.
+    - Maximum and minimum daily apparent temperature.
     
 
     
