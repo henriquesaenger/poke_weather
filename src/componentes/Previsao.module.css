@@ -37,3 +37,26 @@
     font-size: 17px;
     font-weight: bold;
 }
+
+@media (max-width: 1023px) {
+    .detalhes{
+        flex-direction: column;
+        text-align-last: center;
+    }
+  }
+
+@media (max-width: 700px){
+    .previsao{
+        flex-direction: column;
+        height: fit-content;
+    }
+
+    .temperatura{
+        text-align: center;
+        width: 100%;
+    }
+
+    .detalhes{
+        width: 100%;
+    }
+}
