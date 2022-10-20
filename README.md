@@ -5,96 +5,99 @@ The application was developed with ReactJS, and utilizing the "Open-Meteo API" f
 
 ## How the application works
  
--The latitude and Longitude of the user are used to fetch the data of the weather forecast.
--The basic information on weather forecast is shown at the upper side of the application, while we fetch the list of pokemons from the PokeAPI.
--After we have the pokemon list, we make a priority list based on the climate conditions:
-  *Relative Humidity
-    *when below 30%:
-      -ground: +0.2;
-      -fire: +0.4;
-    *when between 31% and 50%:
-      -ground: +0.4;
-      -fire: +0.2;
-    *when between 51% and 70%:
-      -water: +0.2;
-      -grass: +0.1;
-    *when above 71%:
-      -water: +0.6;
-      -grass: +0.2;
-  *Temperature:
-    *when below 0°C:
-      -ice: +0.6;
-    *when between 0°C and 15°C:
-      -ice: +0.3;
-      -grass: +0.2;
-      -ground: +0.2;
-      -normal: +0.2;
-    *when between 15°C and 27°C:
-      -grass: +0.5;
-      -insect: +0.5;
-      -normal: +0.5;
-    *when above 27°C:
-      -fire: +0.5;
-      -normal: +0.2;
-  *Windspeed:
-    *below 10km/h:
-      -flying: +0.1;
-    *between 10km/h and 30km/h:
-      -flying: +0.2;
-    *above 30km/h:
-      -flying: +0.4;
-  *Hour:
-    *between 0 and 6:
-      -dark: +0.5;
-      -ghost: +0.3;
-    *between 6 and 18:
-      -normal: +0.1;
-      -insect: +0.2;
-    *between 18 and 0:
-      -dark: +0.4;
-      -ghost: 0.2;
-  *Rain:
-    *below 0.5mm:
-      -flying: +0.1;
-      -insect: +0.2;
-    *between 0.5mm and 4mm:
-      -flying: -0.1;
-      -water: +0.2;
-      -fire: -0.1;
-    *between 4mm and 8mm:
-      -water: +0.4;
-      -electric: +0.3;
-      -fire: -0.3;
-      -flying: -0.2;
-    *above 8mm:
-      -water: +0.5;
-      -electric: +0.5;
-      -fire: -0.4;
-      -flying: -0.3;
-  *Cloud Cover:
-    *below 20%:
-      *night:
-        -dark: +0.3;
-      *day:
-        -psychic: +0.1;
-    *between 20% and 50%:
-      *night:
-        -dark: +0.3;
-        -ghost: +0.2;
-      *day:
-        -psychic: +0.3;
-    *between 50% and 70%:
-      *night:
-        -dark: +0.2;
-        -ghost: +0.4;
-      *day:
-        -psychic: +0.4;
-    *above 70%:
-      *night:
-        -dark: +0.1;
-        -ghost: +0.7;
-      *day:
-        -psychic: +0.7;
+1 The latitude and Longitude of the user are used to fetch the data of the weather forecast.
+
+2 The basic information on weather forecast is shown at the upper side of the application, while we fetch the list of pokemons from the PokeAPI.
+
+3 After we have the pokemon list, we make a priority list based on the climate conditions:
+
+  * Relative Humidity
+    * when below 30%:
+      - ground: +0.2;
+      - fire: +0.4;
+    * when between 31% and 50%:
+      - ground: +0.4;
+      - fire: +0.2;
+    * when between 51% and 70%:
+      - water: +0.2;
+      - grass: +0.1;
+    * when above 71%:
+      - water: +0.6;
+      - grass: +0.2;
+  * Temperature:
+    * when below 0°C:
+      - ice: +0.6;
+    * when between 0°C and 15°C:
+      - ice: +0.3;
+      - grass: +0.2;
+      - ground: +0.2;
+      - normal: +0.2;
+    * when between 15°C and 27°C:
+      - grass: +0.5;
+      - insect: +0.5;
+      - normal: +0.5;
+    * when above 27°C:
+      - fire: +0.5;
+      - normal: +0.2;
+  * Windspeed:
+    * below 10km/h:
+      - flying: +0.1;
+    * between 10km/h and 30km/h:
+      - flying: +0.2;
+    * above 30km/h:
+      - flying: +0.4;
+  * Hour:
+    * between 0 and 6:
+      - dark: +0.5;
+      - ghost: +0.3;
+    * between 6 and 18:
+      - normal: +0.1;
+      - insect: +0.2;
+    * between 18 and 0:
+      - dark: +0.4;
+      - ghost: 0.2;
+  * Rain:
+    * below 0.5mm:
+      - flying: +0.1;
+      - insect: +0.2;
+    * between 0.5mm and 4mm:
+      - flying: -0.1;
+      - water: +0.2;
+      - fire: -0.1;
+    * between 4mm and 8mm:
+      - water: +0.4;
+      - electric: +0.3;
+      - fire: -0.3;
+      - flying: -0.2;
+    * above 8mm:
+      - water: +0.5;
+      - electric: +0.5;
+      - fire: -0.4;
+      - flying: -0.3;
+  * Cloud Cover:
+    * below 20%:
+      * night:
+        - dark: +0.3;
+      * day:
+        - psychic: +0.1;
+    * between 20% and 50%:
+      * night:
+        - dark: +0.3;
+        - ghost: +0.2;
+      * day:
+        - psychic: +0.3;
+    * between 50% and 70%:
+      * night:
+        - dark: +0.2;
+        - ghost: +0.4;
+      * day:
+        - psychic: +0.4;
+    * above 70%:
+      * night:
+        - dark: +0.1;
+        - ghost: +0.7;
+      * day:
+        - psychic: +0.7;
 
 ## Data
 
