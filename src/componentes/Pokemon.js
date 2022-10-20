@@ -27,7 +27,12 @@ const Pokemon = (props) => {
                                 pokemon.prioridade-=0.7;
                             }
                         }
-                        console.log(pokemon.prioridade);
+                        if(data.is_legendary && ((Math.random()*10000) !== 7)){
+                            pokemon.prioridade-=1.7;
+                        }
+                        if(data.is_mythical){
+                            pokemon.prioridade-=1.7;
+                        }
                         if(lista_preliminar !== []){  
                             setPokelist(lista_preliminar.sort((a,b) => {
                                 if(a.prioridade > b.prioridade){
@@ -41,10 +46,8 @@ const Pokemon = (props) => {
                             }).slice(0,6));
                         }
                     }));
-                    console.log(pokemon.prioridade);
                     name_list.push(pokemon.name);
                     lista_preliminar.push(pokemon);
-                    // console.log(lista_preliminar);
                 }));
             });
         }), []);  
