@@ -1,12 +1,14 @@
-import React, { useEffect, useState} from 'react';
+import React, { Fragment, useEffect, useState} from 'react';
 import styles from './App.module.css';
 import Previsao from './componentes/Previsao';
 import Pokemon from './componentes/Pokemon';
+import Chuva from './componentes/Chuva';
 
 function App() {
    const [previsao, setPrevisao]= useState();
   const [ultimaAtualizacao, setUltimaAtualizacao]= useState();
   const [clima, setClima] = useState();
+  const [chovendo, setChovendo] = useState(false);
   var climate;
 
   useEffect(() => {
@@ -19,6 +21,10 @@ function App() {
         climate= {humidity: prev.hourly.relativehumidity_2m[data.getHours()], temperature: prev.hourly.temperature_2m[data.getHours()], windspeed: prev.hourly.windspeed_10m[data.getHours()], rain: prev.hourly.rain[data.getHours()], cloudcover: prev.hourly.cloudcover[data.getHours()]};
         setPrevisao(prev);
         setClima(climate);
+        console.log(climate.rain);
+        if(climate.rain>0.5){
+          setChovendo(true);
+        }
       });
       
     }
@@ -43,11 +49,18 @@ function App() {
   }
 
   return (
-      <div className={styles.fundo} style={{ background: back_color()}}>
-        <Previsao dados={previsao} hora={ultimaAtualizacao}/>
-        <p className={styles.text}>These pokemon can appear near you:</p>
-        <Pokemon climate={clima} />
+    <div className={styles.wrapper}>
+      <div className={styles.climate_animation} style={{ background: back_color()}}>
+        { chovendo ? (<Chuva />):(<Fragment />)}
+        
       </div>
+      <div className={styles.fundo}>
+          <Previsao dados={previsao} hora={ultimaAtualizacao}/>
+          <p className={styles.text}>These pokemon can appear near you:</p>
+          <Pokemon climate={clima} />
+      </div>
+    </div>
+      
   );
 }
 

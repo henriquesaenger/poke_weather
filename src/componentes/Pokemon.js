@@ -10,7 +10,7 @@ const Pokemon = (props) => {
     var name_list= [];
 
     const pegaLista=  () => {
-        const response =  fetch("https://pokeapi.co/api/v2/pokemon?limit=151")
+        const response =  fetch("https://pokeapi.co/api/v2/pokemon?limit=649")
         .then((response) => (response.json())
         .then((data) => {
             data.results.forEach((pokemon) => {
@@ -72,6 +72,7 @@ const Pokemon = (props) => {
 
     return(
         <Fragment>
+            
             {pokelist && pokelist !== [] ? (
                 <div className={styles.poke_container}>
                     {pokelist.map((pokemon, index) => (
